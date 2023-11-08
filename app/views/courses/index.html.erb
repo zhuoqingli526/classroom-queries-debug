@@ -22,11 +22,11 @@
   </div>
 
   <div>
-    <label for="">
+    <label for="department_id_box">
       Department
     </label>
 
-    <select id="" name="query_department_id">
+    <select id="department_id_box" name="query_department_id">
       <% Department.order({ :name => :asc }).each do |a_department| %>
         <option value="<%= a_department.id %>">
           <%= a_department.name %>
