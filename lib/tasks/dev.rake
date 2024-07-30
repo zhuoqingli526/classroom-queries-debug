@@ -1,5 +1,9 @@
 desc "Fill the database tables with some sample data"
 task({ :sample_data => :environment }) do
+
+  ActiveRecord::Base.connection.tables.each do |t|
+    ActiveRecord::Base.connection.reset_pk_sequence!(t)
+  end
   
   students = [
     {:id=>314, :first_name=>"Nikia", :last_name=>"Fritsch", :email=>"nikiafritsch@school.edu", :created_at=>"2020-07-31T10:29:43-05:00", :updated_at=>"2020-07-31T10:29:43-05:00"}, 
